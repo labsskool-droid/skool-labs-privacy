@@ -16,7 +16,7 @@
 <body>
 
 <h1>Política de privacidad — Extensiones de Skool Labs</h1>
-<p class="updated">Última actualización: 15 de septiembre de 2026</p>
+<p class="updated">Última actualización: 21 de septiembre de 2026</p>
 
 <p>Esta política aplica a las extensiones de Chrome desarrolladas por Skool Labs,
 incluyendo <strong>Skool Level Icons</strong>, <strong>Skool Builder</strong>,
@@ -33,12 +33,53 @@ Skool. Puedes contactarnos a través de
 <h3>Qué datos toca la extensión</h3>
 <p>La extensión lee información que ya es visible para ti dentro de las
 páginas de <code>skool.com</code> que visitas (niveles de los miembros,
-nombres de usuario y datos de la comunidad mostrados en la propia página),
-únicamente para poder dibujar los iconos y animaciones de nivel mejorados.</p>
+nombres de usuario, tu rol en la comunidad y datos de la comunidad
+mostrados en la propia página), únicamente para poder dibujar los iconos y
+animaciones de nivel mejorados.</p>
+<p>Para calcular las rachas de actividad, la extensión consulta la
+actividad visible en los perfiles públicos de Skool de los miembros de la
+comunidad. De esa actividad solo se conserva el número de días seguidos
+de racha de cada miembro, nunca el contenido de lo que ha publicado o
+comentado. Esta consulta solo la pueden lanzar los administradores de la
+comunidad.</p>
+
+<h3>Configuración compartida de la comunidad</h3>
+<p>Para que todos los miembros de una comunidad vean los mismos iconos y
+animaciones, el administrador de esa comunidad puede publicar su
+configuración. Cuando lo hace, la extensión envía a nuestro servidor,
+alojado en <strong>Supabase</strong> (<code>supabase.co</code>), que actúa
+como proveedor de infraestructura, únicamente:</p>
+<ul>
+  <li>Los nombres e iconos de los niveles, incluidas las imágenes que el
+  administrador suba como icono, y el color de las insignias.</li>
+  <li>El nombre de usuario y el nombre visible en Skool de los miembros
+  destacados por el administrador (Miembro del mes y administradores
+  destacados).</li>
+  <li>El número de días de racha de actividad de cada miembro y la fecha
+  de la última sincronización.</li>
+</ul>
+<p>Para publicar, el administrador usa una clave de publicación propia de
+su comunidad. Esa clave se guarda en el servidor cifrada de forma
+irreversible: nadie, incluidos nosotros, puede leerla. Sin esa clave no
+es posible modificar la configuración de una comunidad.</p>
+<p>Las extensiones de los miembros de la comunidad descargan esa
+configuración para mostrar los iconos y animaciones. Los miembros no
+envían ningún dato a nuestro servidor: solo lo leen.</p>
+
+<h3>Conservación y eliminación</h3>
+<p>La configuración publicada se conserva mientras el administrador de la
+comunidad la mantenga. Los miembros que abandonan una comunidad se eliminan
+automáticamente de la configuración en la siguiente sincronización de
+rachas. Si quieres que eliminemos tus datos de la configuración de una
+comunidad, puedes pedírselo a su administrador o escribirnos a través de
+nuestra comunidad de Skool.</p>
 
 <h3>Qué NO hacemos</h3>
 <ul>
-  <li>No enviamos ningún dato a servidores nuestros ni de terceros.</li>
+  <li>No enviamos a ningún servidor otros datos que los descritos en el
+  apartado de configuración compartida.</li>
+  <li>No leemos ni almacenamos el contenido de publicaciones, comentarios
+  ni conversaciones de Skool.</li>
   <li>No usamos analítica ni herramientas de seguimiento (tracking).</li>
   <li>No vendemos ni compartimos datos con nadie.</li>
   <li>No accedemos a tu cuenta de Skool más allá de lo que ya está visible en
@@ -46,201 +87,8 @@ nombres de usuario y datos de la comunidad mostrados en la propia página),
 </ul>
 
 <h3>Dónde se guarda tu configuración</h3>
-<p>Tus preferencias de personalización (qué iconos usas, colores, ajustes de
-la extensión) se guardan usando <code>chrome.storage</code>, es decir,
-localmente en tu propio navegador. Nosotros no tenemos acceso a esa
-información.</p>
-
-<h3>Permisos que solicita y por qué</h3>
-<ul>
-  <li><strong>storage</strong> — guardar tu configuración de iconos y ajustes
-  localmente en tu navegador.</li>
-  <li><strong>alarms</strong> — programar tareas internas periódicas de la
-  propia extensión (por ejemplo, refrescar datos de la página).</li>
-  <li><strong>host_permissions sobre skool.com</strong> — necesario para leer
-  la estructura de la página de Skool y poder insertar los iconos y
-  animaciones de nivel.</li>
-</ul>
-
-<h3>Cumplimiento de las políticas de Google</h3>
-<p>El uso de la información obtenida a través de las páginas de Skool
-cumple con la <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq" target="_blank">Chrome Web Store User Data Policy</a>,
-incluyendo los requisitos de Limited Use quando apliquen.</p>
-
-<h2>Skool Builder</h2>
-
-<h3>Qué datos toca la extensión</h3>
-<p>Skool Builder muestra guías y plantillas para configurar tu comunidad
-de Skool. No lee ni recopila datos de miembros ni de la comunidad más
-allá de lo necesario para funcionar en la página.</p>
-
-<h3>Sistema de licencias</h3>
-<p>Esta extensión es de pago. Cuando introduces tu código de licencia,
-la extensión envía únicamente ese código (no tu nombre, ni tu email,
-ni ningún otro dato personal) al servicio de licencias de nuestro
-proveedor de pagos, <strong>Gumroad</strong> (<code>api.gumroad.com</code>),
-para comprobar que la licencia es válida. Esta comprobación se repite
-periódicamente para mantener el acceso activo mientras la licencia
-siga siendo válida.</p>
-
-<h3>Qué NO hacemos</h3>
-<ul>
-  <li>No enviamos datos de tu comunidad de Skool a ningún servidor.</li>
-  <li>No usamos analítica ni herramientas de seguimiento (tracking).</li>
-  <li>No vendemos ni compartimos datos con nadie salvo la comprobación
-  de licencia descrita arriba.</li>
-</ul>
-
-<h3>Dónde se guarda tu configuración</h3>
-<p>Tu código de licencia y tus preferencias de la extensión se guardan
-usando <code>chrome.storage</code>, localmente en tu propio navegador.</p>
-
-<h3>Permisos que solicita y por qué</h3>
-<ul>
-  <li><strong>storage</strong> — guardar tu código de licencia y tus
-  ajustes localmente en tu navegador.</li>
-  <li><strong>host_permissions sobre api.gumroad.com</strong> — necesario
-  para comprobar que tu código de licencia es válido.</li>
-</ul>
-
-<h2>Labs BOT</h2>
-
-<h3>Qué datos toca la extensión</h3>
-<p>Labs BOT se muestra junto a los chats de <code>skool.com</code> para
-ofrecerte plantillas de mensajes, recordatorios de seguimiento y notas
-sobre los miembros con los que hablas. Para ello, lee dentro de la propia
-página el nombre del destinatario del chat que tienes abierto, únicamente
-para poder rellenar automáticamente tus plantillas y asociar tus notas y
-seguimientos a la persona correcta.</p>
-
-<h3>Qué guardas tú dentro de la extensión</h3>
-<p>Las plantillas de mensajes, categorías, notas por persona y
-recordatorios de seguimiento que creas se guardan usando
-<code>chrome.storage</code>. Esta información viaja entre tus propios
-dispositivos mediante la sincronización nativa de tu cuenta de Chrome
-(<code>chrome.storage.sync</code>) — es decir, pasa por la infraestructura
-de sincronización de Google asociada a tu propia cuenta, no por servidores
-de Skool Labs. Nosotros no tenemos acceso a tus plantillas, notas ni
-seguimientos en ningún momento.</p>
-
-<h3>Envío de mensajes</h3>
-<p>Labs BOT no envía ningún mensaje de forma automática. Únicamente
-prepara el texto y lo inserta o lo deja disponible para copiar; el envío
-real siempre lo haces tú, a mano, desde el propio chat de Skool.</p>
-
-<h3>Copia de seguridad</h3>
-<p>Si usas la función de exportar/restaurar configuración, el archivo se
-descarga directamente a tu ordenador — no pasa por ningún servidor
-nuestro.</p>
-
-<h3>Sistema de licencias</h3>
-<p>Esta extensión es de pago. Cuando introduces tu código de licencia,
-la extensión envía únicamente ese código (no tu nombre, ni tu email, ni
-ningún otro dato personal) al servicio de licencias de nuestro proveedor
-de pagos, <strong>Gumroad</strong> (<code>api.gumroad.com</code>), para
-comprobar que la licencia es válida. Esta comprobación se repite
-periódicamente para mantener el acceso activo mientras la licencia siga
-siendo válida.</p>
-
-<h3>Qué NO hacemos</h3>
-<ul>
-  <li>No enviamos tus plantillas, notas ni seguimientos a ningún servidor
-  nuestro.</li>
-  <li>No leemos ni almacenamos el contenido de tus conversaciones en
-  Skool, más allá del nombre del destinatario necesario para rellenar
-  las plantillas.</li>
-  <li>No usamos analítica ni herramientas de seguimiento (tracking).</li>
-  <li>No vendemos ni compartimos datos con nadie salvo la comprobación
-  de licencia descrita arriba.</li>
-</ul>
-
-<h3>Permisos que solicita y por qué</h3>
-<ul>
-  <li><strong>storage</strong> — guardar tus plantillas, notas,
-  seguimientos y tu código de licencia localmente y sincronizarlos entre
-  tus dispositivos vía tu cuenta de Chrome.</li>
-  <li><strong>host_permissions sobre skool.com</strong> — necesario para
-  detectar el chat abierto, insertar el botón de plantillas y rellenar
-  automáticamente el nombre del destinatario.</li>
-  <li><strong>host_permissions sobre api.gumroad.com</strong> — necesario
-  para comprobar que tu código de licencia es válido.</li>
-</ul>
-
-<h3>Cumplimiento de las políticas de Google</h3>
-<p>El uso de la información obtenida a través de las páginas de Skool
-cumple con la <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq" target="_blank">Chrome Web Store User Data Policy</a>,
-incluyendo los requisitos de Limited Use quando apliquen.</p>
-
-<h2>Skool Payment Recovery</h2>
-
-<h3>Qué datos toca la extensión</h3>
-<p>Skool no tiene una API pública, así que esta extensión lee directamente,
-dentro de tu propia página de Miembros de <code>skool.com</code>, la
-información que tú mismo ya ves ahí: quién está en periodo de gracia por
-un pago fallido y quién se ha dado de baja (pestañas "Cancelando" y
-"Cancelado"). Usa ese nombre y ese estado únicamente para poder ofrecerte
-la secuencia de mensajes de recuperación.</p>
-
-<h3>Envío de mensajes</h3>
-<p>Cuando activas el modo automático, la extensión escribe y envía los
-mensajes de tu secuencia directamente en el chat real de Skool, simulando
-que lo haces tú (incluida una velocidad de escritura y pausas variables).
-No usa ningún endpoint oculto ni API no documentada de Skool: interactúa
-con la página exactamente como lo harías tú desde el teclado. En modo
-borrador, tú revisas y apruebas cada mensaje antes de que se envíe.</p>
-
-<h3>Dónde se guarda tu configuración</h3>
-<p>Las secuencias, plantillas, tu enlace de pago, el historial de mensajes
-enviados, las respuestas de feedback capturadas y los ajustes de
-calibración manual se guardan usando <code>chrome.storage</code>,
-localmente en tu propio navegador. Los datos de cada comunidad de Skool
-en la que uses la extensión están completamente aislados entre sí.
-Nosotros no tenemos acceso a esta información en ningún momento.</p>
-
-<h3>Sistema de licencias</h3>
-<p>Esta extensión es de pago. Cuando introduces tu código de licencia,
-la extensión envía únicamente ese código (no tu nombre, ni tu email, ni
-ningún otro dato personal) al servicio de licencias de nuestro proveedor
-de pagos, <strong>Gumroad</strong> (<code>api.gumroad.com</code>), para
-comprobar que la licencia es válida. Esta comprobación se repite
-periódicamente para mantener el acceso activo mientras la licencia siga
-siendo válida.</p>
-
-<h3>Qué NO hacemos</h3>
-<ul>
-  <li>No enviamos los datos de tus miembros, tus mensajes ni tus
-  secuencias a ningún servidor nuestro.</li>
-  <li>No leemos ni almacenamos más información de tu página de Miembros
-  que el nombre y el estado (pago fallido / baja) necesarios para la
-  recuperación.</li>
-  <li>No usamos analítica ni herramientas de seguimiento (tracking)
-  externas.</li>
-  <li>No vendemos ni compartimos datos con nadie salvo la comprobación
-  de licencia descrita arriba.</li>
-</ul>
-
-<h3>Permisos que solicita y por qué</h3>
-<ul>
-  <li><strong>storage</strong> — guardar tus secuencias, plantillas,
-  historial y código de licencia localmente en tu navegador.</li>
-  <li><strong>notifications</strong> — avisarte cuando se detecta una
-  baja nueva o se captura una respuesta de feedback.</li>
-  <li><strong>host_permissions sobre skool.com</strong> — necesario para
-  leer el estado de tus miembros en la página de Miembros y para escribir
-  y enviar los mensajes de recuperación en el chat.</li>
-  <li><strong>host_permissions sobre api.gumroad.com</strong> — necesario
-  para comprobar que tu código de licencia es válido.</li>
-</ul>
-
-<h3>Cumplimiento de las políticas de Google</h3>
-<p>El uso de la información obtenida a través de las páginas de Skool
-cumple con la <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq" target="_blank">Chrome Web Store User Data Policy</a>,
-incluyendo los requisitos de Limited Use quando apliquen.</p>
-
-<h2>Contacto</h2>
-<p>Si tienes cualquier duda sobre esta política o quieres solicitar la
-eliminación de algún dato, escríbenos a través de
-<a href="https://www.skool.com/skool-labs-3413/about" target="_blank">nuestra comunidad de Skool</a>.</p>
-
-</body>
-</html>
+<p>Tus preferencias (qué iconos usas, colores, si has visto el tutorial y,
+si eres administrador, tu clave de publicación) se guardan usando
+<code>chrome.storage</code>, es decir, localmente en tu propio navegador.
+La extensión guarda también ahí una copia de la configuración publicada de
+cada
